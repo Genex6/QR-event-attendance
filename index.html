@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Booking</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* Styling for the message box */
+        #messageBox {
+            display: none;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Styling for the new button */
+        .generate-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+        .generate-btn:hover {
+            background-color: #1976D2;
+        }
+
+        /* Styling for the disabled button */
+        .generate-btn.disabled {
+            background-color: #e0e0e0;
+            cursor: not-allowed;
+        }
+
+        /* Styling for seat elements */
+        .seat {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+        }
+
+        .seat.empty {
+            background-color: #f0f0f0;
+        }
+
+        .seat.booked {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .seat.disabled {
+            background-color: #e0e0e0;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="sittingarr">
+        <p onclick="opensit()" class="seatbtn" id="seatbtn">Pick your seat</p>
+        <div class="sitimg" id="sitimg" style="display:none;">
+            <a href="javascript:void(0)" onclick="close_sit()">X</a>
+            <img src="seat/42105261-top-view-of-a-3d-rendering-conference-room-a-white-round-table-and-six-chairs-around-office-removebg-preview.png" alt="Seat Map" style="width: 300px;" usemap="#seat">
+            
+            <!-- Seat elements will be generated dynamically -->
+            <div id="seatContainer">
+                <!-- Seat elements will be appended here -->
+            </div>
+
+            <!-- Button to generate more seats -->
+            <button onclick="generateMoreSeats()" id="generateBtn" class="generate-btn">Generate More Seats</button>
+        </div>
+        <div id="messageBox">
+            <p class="message" id="messageText"></p>
+        </div>
+    </div>
+
+    <script>
+        let totalSeats = 6; // Initial number of seats to generate
+        let bookedSeats = 0;
+        const seatsPerBatch = 6; // Number of seats to generate when user clicks to generate more seats
+        const maxSeats = 30; // Maximum number of seats
+
+        function opensit() {
+            document.getElementById("sitimg").style.display = "block"; 
+            generateSeats(); // Generate seats dynamically
+        }
+
+        function close_sit() {
+            document.getElementById("sitimg").style.display = "none";
+            document.getElementById("messageBox").style.display = "none";
+        }
+
+        // Generate initial seats and render them
+        function generateSeats() {
+            const seatContainer = document.getElementById("seatContainer");
+            // Clear all old seat elements before generating new ones
+            seatContainer.innerHTML = ''; // This will remove any previously generated seats
+            // Generate new seats
+            for (let i = bookedSeats + 1; i <= totalSeats; i++) {
+                const seat = document.createElement("span");
+                seat.classList.add("seat", "empty");
+                seat.innerText = i;  // Display seat number
+                seat.id = `seat${i}`;
+                seat.onclick = () => bookSeat(seat, i);
+                seatContainer.appendChild(seat);
+            }
+        }
+
+        function bookSeat(seat, seatNumber) {
+            if (seat.classList.contains('booked')) {
+                displayMessage(`Seat ${seatNumber} is already booked.`);
+                return;
+            }
+
+            // Book the selected seat
+            seat.classList.add('booked');
+            seat.classList.remove('empty');
+            seat.innerText = ` ${seatNumber} (Booked)`;  // Update seat label
+
+            // Apply overlay effect (optional)
+            applyOverlay(seat);
+
+            bookedSeats++;
+
+            // Disable all other seats
+            disableOtherSeats();
+
+            // Disable the "Generate More Seats" button after a seat is picked
+            document.getElementById("generateBtn").classList.add("disabled");
+            document.getElementById("generateBtn").classList.add("disabled").style.display=" none";
+            
+            document.getElementById("generateBtn").classList.add("disabled").style.cursor=" not-allowed";
+            document.getElementById("generateBtn").disabled = true;
+
+            // If all seats in the current batch are booked, generate more seats
+            if (bookedSeats === totalSeats) {
+                displayMessage("All seats in this batch are booked!");
+            }
+        }
+
+        function applyOverlay(seat) {
+            seat.style.backgroundColor = "green";  // Indicate seat is booked
+            seat.style.color = "white";  // Change text color
+            seat.style.cursor = "not-allowed";  // Disable further booking
+        }
+
+        // Function to disable other seats
+        function disableOtherSeats() {
+            const allSeats = document.querySelectorAll('.seat');
+            allSeats.forEach(seat => {
+                if (!seat.classList.contains('booked')) {
+                    seat.classList.add('disabled');
+                    seat.style.cursor = 'not-allowed';  // Change cursor to indicate it's disabled
+                    seat.onclick = null;  // Remove the onclick event to prevent further clicking
+                }
+            });
+        }
+
+        // Generate more seats by adding another batch
+        function generateMoreSeats() {
+            // Check if total seats exceed the maxSeats limit
+            if (totalSeats + seatsPerBatch > maxSeats) {
+                displayMessage("Maximum number of seats reached.");
+                document.getElementById("generateBtn").classList.add("disabled");  // Disable the button
+                document.getElementById("generateBtn").disabled = true;  // Optionally disable the button
+                return;
+            }
+
+            totalSeats += seatsPerBatch;  // Increase the total number of seats
+            generateSeats();  // Clear old seats and generate the new batch of seats
+        }
+
+        // Function to display messages in the message box
+        function displayMessage(message) {
+            const messageBox = document.getElementById("messageBox");
+            const messageText = document.getElementById("messageText");
+            messageText.innerText = message;
+            messageBox.style.display = "block"; // Show the message box
+
+            // Hide the message box after 4 seconds
+            setTimeout(() => {
+                messageBox.style.display = "none";
+            }, 4000); // 4000ms = 4 seconds
+        }
+    </script>
+</body>
+</html>

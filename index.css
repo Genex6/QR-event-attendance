@@ -1,0 +1,702 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+    margin: 50px;
+}
+section{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+   
+}
+.img img{
+    width: 700px;
+    height: 500px;
+    object-fit: cover;
+}
+.formdiv h1{
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.formdiv{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+}
+form div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+form div input{
+    outline: none;
+    border: none;
+    font-size: 17px;
+    padding: 10px 10px;
+    margin-bottom: 5px;
+    width: 350px;
+    border-radius: 10px;
+    text-transform: capitalize;
+    box-shadow: inset 5px 5px 10px rgba(128, 128, 128, 0.704);
+}
+form div label{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+form div select{
+    font-size: 17px;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    box-shadow: inset 5px 5px 10px rgba(128, 128, 128, 0.704);
+   
+}
+.input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+   
+}
+.input input{
+    font-size: 20px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    transition: ease-in-out 0.7s;
+}
+.input input:hover{
+    background-color: rgb(6, 179, 6);
+    transform: scale(1.1);
+}
+.toast{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#message{
+    font-size: 20px;
+    color: red;
+    padding: 5px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+    
+}
+
+.invite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.event {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.event span {
+    font-weight: bold;
+}
+
+/* Add these styles to your index.css */
+
+
+.sittingarr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.empty{
+    background-color: rgba(5, 5, 5, 0.855); /* Green for empty */
+    transform: rotate(-35deg);
+    padding: 1px;
+    color: white;
+    width: 40px;
+    font-size: 25px;
+    font-weight: 600;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    top: 55px;
+    left: 100px;
+    text-align: center;
+}
+.sitimg{
+    position: relative;
+}
+
+/* For a booked seat, overlay will be red */
+.booked {
+    background-color: rgba(5, 5, 5, 0.855); /* Green for empty */
+    transform: rotate(-35deg);
+    padding: 1px;
+    color: rgb(255, 255, 255);
+    width: 40px;
+    font-size: 25px;
+    font-weight: 600;
+    height: 30px;
+    position: absolute;
+    cursor: no-drop;
+    top: 58px;
+    left: 101px;
+    text-align: center;
+    
+}
+#seat6,#seat12 {
+    
+    transform: rotate(-85deg);
+    padding: 1px;
+    color: rgb(255, 255, 255);
+    width: 40px;
+    font-size: 25px;
+    font-weight: 600;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    top: 135px;
+    left: 56px;
+    text-align: center;
+}
+#seat5,#seat11 {
+    
+    transform: rotate(-145deg);
+    padding: 1px;
+    color: rgb(255, 255, 255);
+    width: 40px;
+    font-size: 25px;
+    font-weight: 600;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    top: 210px;
+    left: 101px;
+    text-align: center;
+}
+#seat3,#seat9 {
+    
+    transform: rotate(-271deg);
+    padding: 1px;
+    color: rgb(255, 255, 255);
+    width: 40px;
+    font-size: 25px;
+    font-weight: 600;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    top: 135px;
+    left: 233px;
+    text-align: center;
+}
+.generate-btn {
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+.generate-btn:hover {
+    background-color: #1976D2;
+}
+#seat4,#seat10 {
+    
+    transform: rotate(-221deg);
+    padding: 1px;
+    color: rgb(255, 255, 255);
+    width: 40px;
+    font-size: 25px;
+    font-weight: 600;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    top: 210px;
+    left: 195px;
+    text-align: center;
+}
+#seat2,#seat8 {
+    
+    transform: rotate(32deg);
+    padding: 1px;
+    color: rgb(255, 255, 255);
+    width: 40px;
+    font-size: 25px;
+    font-weight: 600;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    top: 60px;
+    left: 189px;
+    text-align: center;
+}
+#messageBox {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    display: none;
+}
+.message {
+    font-size: 16px;
+    color: #333;
+}
+.seatbtn {
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+.seatbtn:hover {
+    background-color: #45a049;
+}
+.x{
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: red;
+}
+
+
+.seat.disabled {
+    cursor: not-allowed;
+      /* Disable cursor for non-clickable seats */
+    opacity: 0.6;  /* Make unclickable seats look faded */
+}
+/* ------------ break point-------- */
+@media screen and (max-width:1024px) {
+    *{
+        overflow-y: scroll;
+    }
+    section{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 40px;
+        gap: 20px;
+        
+    }
+    .img img{
+        width:100%;
+        object-fit: cover;
+    }
+    .formdiv h1{
+        font-size: 30px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+    .formdiv{
+        border:none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+    }
+    form div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        gap: 20px;
+    }
+    form{
+        width: 400px;
+    }
+    form div input{
+        outline: none;
+        border: none;
+        font-size: 14px;
+        padding: 10px 10px;
+        margin-bottom: 5px;
+        width: 250px;
+        border-radius: 10px;
+        text-transform: capitalize;
+        box-shadow: inset 5px 5px 10px rgba(128, 128, 128, 0.704);
+    }
+    form div label{
+        font-size: 17px;
+        text-transform: capitalize;
+    }
+    form div select{
+        font-size: 17px;
+        text-transform: capitalize;
+        outline: none;
+        border: none;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        box-shadow: inset 5px 5px 10px rgba(128, 128, 128, 0.704);
+       
+    }
+    .input{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+       
+    }
+    .input input{
+        font-size: 20px;
+        background-color: green;
+        color: white;
+        cursor: pointer;
+        transition: ease-in-out 0.7s;
+    }
+    .input input:hover{
+        background-color: rgb(6, 179, 6);
+        transform: scale(1.1);
+    }
+    
+    #message{
+        font-size: 20px;
+        background-color: rgb(182, 10, 10);
+        color: white;
+        padding: 5px;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        border-radius: 20px;
+        
+    }
+    
+}
+@media screen and (max-width:768px) {
+    *{
+        overflow-y: scroll;
+    }
+    section{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        
+    }
+    .img img{
+        width: 100%;
+        object-fit: cover;
+    }
+    .formdiv h1{
+        font-size: 40px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+    .formdiv{
+        border:none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+    form div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        gap: 20px;
+    }
+    form div input{
+        outline: none;
+        border: none;
+        font-size: 14px;
+        padding: 10px 10px;
+        margin-bottom: 5px;
+        width: 250px;
+        border-radius: 10px;
+        text-transform: capitalize;
+        box-shadow: inset 5px 5px 10px rgba(128, 128, 128, 0.704);
+    }
+    form div label{
+        font-size: 15px;
+        text-transform: capitalize;
+    }
+    form div select{
+        font-size: 17px;
+        text-transform: capitalize;
+        outline: none;
+        border: none;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        box-shadow: inset 5px 5px 10px rgba(128, 128, 128, 0.704);
+       
+    }
+    .input{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+       
+    }
+    .input input{
+        font-size: 20px;
+        background-color: green;
+        color: white;
+        cursor: pointer;
+        transition: ease-in-out 0.7s;
+    }
+    .input input:hover{
+        background-color: rgb(6, 179, 6);
+        transform: scale(1.1);
+    }
+    
+    #message{
+        font-size: 20px;
+        /* background-color: rgb(182, 10, 10); */
+        color: rgb(184, 7, 7);
+        padding: 5px;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        border-radius: 20px;
+        
+    }
+    
+}
+@media screen and (max-width: 400px){ 
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: bisque;
+       
+    }
+    section{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+       
+    }
+    .img img{
+        width: 400px;
+    }
+    .formdiv h1{
+        font-size: 15px;
+        margin-left: 20px;
+        font-weight: 600;
+        text-align: center;
+        text-transform: capitalize;
+    }
+    .formdiv{
+        border: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align:start;
+        padding: 10px;
+       
+       
+    }
+    form div{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 0px;
+    }
+    form div input{
+        outline: none;
+        border: none;
+        font-size: 13px;
+        padding: 5px 12px;
+        margin-bottom: 5px;
+        width: 200px;
+        border-radius: 10px;
+        text-transform: capitalize;
+        box-shadow: inset 5px 5px 10px rgba(163, 163, 163, 0.704);
+    }
+    form div label{
+        font-size: 15px;
+        text-transform: capitalize;
+    }
+    form div select{
+        font-size: 13px;
+        text-transform: capitalize;
+        outline: none;
+        border: none;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        box-shadow: inset 5px 5px 10px rgba(128, 128, 128, 0.704);
+       
+    }
+    .input{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+       
+    }
+    .input input{
+        font-size: 15px;
+        background-color: green;
+        color: white;
+        cursor: pointer;
+        transition: ease-in-out 0.7s;
+    }
+    .input input:hover{
+        background-color: rgb(6, 179, 6);
+        transform: scale(1.1);
+    }
+    
+    #message{
+        font-size: 14px;
+        color: white;
+        padding: 5px;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        border-radius: 10px;
+        text-align: center;
+        
+    }
+    
+}
+@media screen and (max-width: 320px){ 
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: bisque;
+       
+    }
+    section{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+       
+    }
+    .img img{
+        width: 400px;
+    }
+    .formdiv h1{
+        font-size: 15px;
+        margin-left: 20px;
+        font-weight: 600;
+        text-align: center;
+        text-transform: capitalize;
+    }
+    .formdiv{
+        border: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align:start;
+        padding: 10px;
+       
+       
+    }
+    form div{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 0px;
+    }
+    form div input{
+        outline: none;
+        border: none;
+        font-size: 13px;
+        padding: 5px;
+        margin-bottom: 5px;
+        width: 200px;
+        border-radius: 10px;
+        text-transform: capitalize;
+        box-shadow: inset 5px 5px 10px rgba(128, 128, 128, 0.704);
+    }
+    form div label{
+        font-size: 15px;
+        text-transform: capitalize;
+    }
+    form div select{
+        font-size: 13px;
+        text-transform: capitalize;
+        outline: none;
+        border: none;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        box-shadow: inset 5px 5px 10px rgba(128, 128, 128, 0.704);
+       
+    }
+    .input{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+       
+    }
+    .input input{
+        font-size: 15px;
+        background-color: green;
+        color: white;
+        cursor: pointer;
+        transition: ease-in-out 0.7s;
+    }
+    .input input:hover{
+        background-color: rgb(6, 179, 6);
+        transform: scale(1.1);
+    }
+    
+    #message{
+        font-size: 14px;
+        /* background-color: rgb(182, 10, 10); */
+        color: white;
+        padding: 5px;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        border-radius: 10px;
+        text-align: center;
+        
+    }
+    
+}
